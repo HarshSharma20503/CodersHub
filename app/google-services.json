@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382536912732",
+    "project_id": "codershub-7e89d",
+    "storage_bucket": "codershub-7e89d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382536912732:android:6660015b3f5392a197fb99",
+        "android_client_info": {
+          "package_name": "com.xoxoharsh.codershub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8yG1wgLUtsZh_558ULUoKaKFTJRCawhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
