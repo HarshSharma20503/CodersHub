@@ -37,11 +37,12 @@
             android:id="@+id/platform"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Codeforces"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.644"
             app:layout_constraintStart_toEndOf="@+id/textView6" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -73,12 +74,12 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XoXoHarsh"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.426"
+            app:layout_constraintHorizontal_bias="0.617"
             app:layout_constraintStart_toEndOf="@+id/textView8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -129,7 +130,7 @@
             android:text="Easy :"
             android:textColor="@color/comments"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView16"
+            app:layout_constraintEnd_toStartOf="@+id/easy_questions"
             app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toStartOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -154,7 +155,7 @@
             android:textColor="@color/comments"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView18"
+            app:layout_constraintEnd_toStartOf="@+id/hard_questions"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/textView13"
@@ -164,43 +165,43 @@
             android:id="@+id/total_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="500"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.658"
+            app:layout_constraintHorizontal_bias="0.691"
             app:layout_constraintStart_toEndOf="@+id/textView11" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/easy_questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="240"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
             app:layout_constraintEnd_toEndOf="@+id/total_question" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/medium_questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="160"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
-            app:layout_constraintEnd_toEndOf="@+id/textView16" />
+            app:layout_constraintEnd_toEndOf="@+id/easy_questions" />
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/hard_questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
-            app:layout_constraintEnd_toEndOf="@+id/textView17" />
+            app:layout_constraintEnd_toEndOf="@+id/medium_questions" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -267,7 +268,7 @@
             android:id="@+id/contestAttempted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="62"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/contests_attempted"
@@ -279,7 +280,7 @@
             android:id="@+id/contests_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1321"
+            android:text="?"
             android:textColor="@color/operators"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/contests_rating_section"
@@ -289,7 +290,7 @@
             android:id="@+id/contest_highest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1464"
+            android:text="?"
             android:textAlignment="textEnd"
             android:textColor="@color/operators"
             android:textSize="16sp"

@@ -8,11 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.xoxoharsh.codershub.util.FirebaseUtil;
 import com.xoxoharsh.codershub.util.Utility;
+
+import java.io.Serializable;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,21 +58,53 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         changeInProgress(true);
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
-            changeInProgress(false);
+
             if(task.isSuccessful()){
                 //login is success
                 if(firebaseAuth.getCurrentUser().isEmailVerified()){
                     //go to main activity
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    finish();
+
+                    fetchUserDataAndStartMainActivity();
+
                 }else{
                     Utility.showToast(LoginActivity.this,"Email not verified, Please verify your email.");
                 }
             }else{
                 //login failed
+                changeInProgress(false);
                 Utility.showToast(LoginActivity.this,task.getException().getLocalizedMessage());
             }
         });
+    }
+
+    private void fetchUserDataAndStartMainActivity() {
+        DocumentReference userRef = FirebaseUtil.currentUserDetails();
+
+        userRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    // Convert the document to a Map
+                    Map<String, Object> userData = document.getData();
+
+                    // Now, start the main activity and pass the user data
+                    startMainActivity(userData);
+                } else {
+                    // Document doesn't exist
+                    Toast.makeText(LoginActivity.this, "User data not found.", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                // Handle errors
+                Toast.makeText(LoginActivity.this, "Error fetching user data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void startMainActivity(Map<String, Object> userData) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("Data",(Serializable) userData);
+        startActivity(intent);
+        finish(); // Optional: finish the current activity
     }
 
     void changeInProgress(boolean inProgress){
