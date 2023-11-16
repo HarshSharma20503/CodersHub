@@ -21,8 +21,8 @@ public class FirebaseUtil {
     {
         return FirebaseFirestore.getInstance().collection("users").document(currentUserEmail());
     }
-    public static DocumentReference CodeforcesPOTD()
+    public static DocumentReference POTD()
     {
-        return FirebaseFirestore.getInstance().collection("questions").document("Codeforces");
+        return FirebaseFirestore.getInstance().collection("questions").document("POTD");
     }
 }
