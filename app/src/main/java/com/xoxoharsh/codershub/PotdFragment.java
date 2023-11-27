@@ -35,16 +35,29 @@ public class PotdFragment extends Fragment {
         {
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
             Log.d("Harsh Error","recieved data");
-            platform.setText(((String)bundle.getString("Platform")));
-            problemStatement.setText(((String)userData.get("problemStatement")));
-            examples.setText(((String)userData.get("examples")));
-            String text  = (String)userData.get("constraints");
-            constraints.setText(text);
+            String website = ((String)bundle.getString("Platform"));
+            if(website.equals("codeforces"))
+                platform.setText("Codeforces");
+            else if(website.equals("leetcode"))
+                platform.setText("Leetcode");
+            else if(website.equals("gfg"))
+                platform.setText("Geeksforgeeks");
+
+            String pStatement = ((String)userData.get("Problem Statement"));
+            String example = ((String)userData.get("Examples"));
+            String constraint = (String)userData.get("Constraints");
+            problemStatement.setText(replaceAtExclamation(pStatement));
+            examples.setText(replaceAtExclamation(example));
+            constraints.setText(replaceAtExclamation(constraint));
         }
         else {
             Toast.makeText(getContext(), "Data Not recieved in fragment", Toast.LENGTH_SHORT).show();
         }
 
         return view;
+    }
+    private static String replaceAtExclamation(String input) {
+        // Use replace to replace every occurrence of "@!" with a newline character
+        return input.replace("@!", "\n");
     }
 }

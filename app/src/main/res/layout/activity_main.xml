@@ -55,14 +55,14 @@
 
     <FrameLayout
         android:id="@+id/main_frame_layout"
-        android:layout_width="410dp"
-        android:layout_height="590dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/main_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
 
 
     </FrameLayout>

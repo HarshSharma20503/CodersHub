@@ -3,9 +3,7 @@ package com.xoxoharsh.codershub;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,9 +13,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.SetOptions;
-import com.xoxoharsh.codershub.model.CodeforcesModel;
-import com.xoxoharsh.codershub.model.GfgModel;
-import com.xoxoharsh.codershub.model.LeetcodeModel;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
 
 import java.util.HashMap;
@@ -70,16 +65,22 @@ public class SettingsActivity extends AppCompatActivity {
         Map<String, Object> updatedHandles = new HashMap<>();
 
         if (!newCfHandle.isEmpty()) {
-            updatedHandles.put("Codeforces", new CodeforcesModel(newCfHandle));
+            Map<String,Object>cf = new HashMap<>();
+            cf.put("Handle",newCfHandle);
+            updatedHandles.put("codeforces", cf);
         }
         if (!newLHandle.isEmpty()) {
-            updatedHandles.put("Leetcode", new LeetcodeModel(newLHandle));
+            Map<String,Object>le = new HashMap<>();
+            le.put("Handle",newLHandle);
+            updatedHandles.put("leetcode", le);
         }
         if (!newGfgHandle.isEmpty()) {
-            updatedHandles.put("Geeksforgeek", new GfgModel(newGfgHandle));
+            Map<String,Object>gfg = new HashMap<>();
+            gfg.put("Handle",newGfgHandle);
+            updatedHandles.put("gfg", gfg);
         }
 
-        userDocRef.set(updatedHandles, SetOptions.merge())
+        userDocRef.set(updatedHandles)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(SettingsActivity.this, "Handles updated successfully, Please Login again to see effect", Toast.LENGTH_LONG).show();

@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -23,9 +22,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
-    ProfileFragment profileFragment;
+    CodeforcesProfile codeforcesProfile;
+    LeetcodeProfile leetcodeProfile;
+    GfgProfile gfgProfile;
     PotdFragment potdFragment;
     ContestsFragment contestsFragment;
     BottomNavigationView bottomNavigationView;
@@ -39,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("CodersHub_Errors","Entered MainActivity");
 
         menuBtn = findViewById(R.id.menu_btn);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        profileFragment = new ProfileFragment();
+        codeforcesProfile = new CodeforcesProfile();
+        leetcodeProfile = new LeetcodeProfile();
+        gfgProfile = new GfgProfile();
         potdFragment = new PotdFragment();
         contestsFragment = new ContestsFragment();
         menuList = new ArrayList<>();
@@ -55,17 +58,19 @@ public class MainActivity extends AppCompatActivity {
                     Object outerValue = entry.getValue();
                     platform = outerKey;
                     menuList.add(outerKey);
-                    if ("Codeforces".equals(outerKey)) {
+                    if ("codeforces".equals(outerKey)) {
                         codeforcesMap = (Map<String, Object>) outerValue;
-                    } else if ("Leetcode".equals(outerKey)) {
+                    } else if ("leetcode".equals(outerKey)) {
                         leetcodeMap = (Map<String, Object>) outerValue;
-                    } else if ("Geeksforgeek".equals(outerKey)) {
+                    } else if ("gfg".equals(outerKey)) {
                         geeksforgeekMap = (Map<String, Object>) outerValue;
                     }
                 }
+                Log.d("CodersHub_Errors","Recieved all the profiles data");
                 Toast.makeText(this, "Data recieved", Toast.LENGTH_SHORT).show();
             }
             else {
+                Log.d("CodersHub_Errors","Data not recieved");
                 Toast.makeText(this, "Data not recieved", Toast.LENGTH_SHORT).show();
             }
         }
@@ -79,30 +84,37 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.menu_profile) {
                 Bundle bundle = new Bundle();
-                if(platform.equals("Codeforces")) {
+                Log.d("CodersHub_Errors","Entered bottomNaviagtionView");
+                if(platform.equals("codeforces")) {
+                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Codeforces");
                     bundle.putSerializable("userData", (Serializable) codeforcesMap);
+                    codeforcesProfile.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,codeforcesProfile).commit();
                 }
-                else if(platform.equals("Leetcode")) {
+                else if(platform.equals("leetcode")) {
+                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Leetcode");
                     bundle.putSerializable("userData", (Serializable) leetcodeMap);
+                    leetcodeProfile.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,leetcodeProfile).commit();
                 }
-                else if(platform.equals("Geeksforgeek")) {
+                else if(platform.equals("gfg")) {
+                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Geeksforgeek");
                     bundle.putSerializable("userData", (Serializable) geeksforgeekMap);
+                    gfgProfile.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,gfgProfile).commit();
                 }
-                bundle.putString("Platform",platform);
-                profileFragment.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,profileFragment).commit();
             }
             if(item.getItemId() == R.id.menu_potd) {
                 Bundle bundle = new Bundle();
                 Log.d("Harsh Error","Platform value is "+platform);
-                if(platform.equals("Leetcode")) {
+                if(platform.equals("leetcode")) {
                     bundle.putSerializable("userData", (Serializable) leetcodePotdMap);
                 }
-                else if(platform.equals("Codeforces")) {
+                else if(platform.equals("codeforces")) {
 
                     bundle.putSerializable("userData", (Serializable) codeforcesPotdMap);
                 }
-                else if(platform.equals("Geeksforgeek")) {
+                else if(platform.equals("gfg")) {
                     Log.d("Harsh Error","putting GeeksforgeekPotdMap");
                     bundle.putSerializable("userData", (Serializable) geeksforgeekPotdMap);
                 }
@@ -131,29 +143,27 @@ public class MainActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem -> {
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_frame_layout);
             String fragment;
-            if (currentFragment instanceof ProfileFragment) {
+            if (currentFragment instanceof CodeforcesProfile || currentFragment instanceof LeetcodeProfile || currentFragment instanceof GfgProfile) {
                 fragment = "Profile";
             } else if (currentFragment instanceof PotdFragment) {
                 fragment = "POTD";
             } else if (currentFragment instanceof ContestsFragment) {
                 fragment = "Contests";
-            }
-            else {
+            } else {
                 fragment = "";
             }
             if(menuItem.getTitle() == "Codeforces"){
-                if(menuList.contains("Codeforces"))
+                if(menuList.contains("codeforces"))
                 {
-                    platform = "Codeforces";
+                    platform = "codeforces";
                     if(fragment.equals("Profile")) {
-                        profileFragment = new ProfileFragment();
+                        codeforcesProfile = new CodeforcesProfile();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) codeforcesMap);
                         bundle.putString("Platform",platform);
-                        profileFragment.setArguments(bundle);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,profileFragment).commit();
-                    }
-                    else if(fragment.equals("POTD"))
+                        codeforcesProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,codeforcesProfile).commit();
+                    } else if(fragment.equals("POTD"))
                     {
                         potdFragment = new PotdFragment();
                         Bundle bundle = new Bundle();
@@ -161,30 +171,24 @@ public class MainActivity extends AppCompatActivity {
                         bundle.putString("Platform",platform);
                         potdFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,potdFragment).commit();
-                    }
-                    else {
+                    } else {
                         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
                     }
-                }
-                else
-                {
+                } else {
                     Toast.makeText(this, "Please add the Codeforces handle from settings", Toast.LENGTH_SHORT).show();
                 }
             }
             else if(menuItem.getTitle() == "Leetcode"){
-                if(menuList.contains("Leetcode"))
-                {
-                    platform = "Leetcode";
+                if(menuList.contains("leetcode")) {
+                    platform = "leetcode";
                     if(fragment.equals("Profile")) {
-                        profileFragment = new ProfileFragment();
+                        leetcodeProfile = new LeetcodeProfile();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) leetcodeMap);
                         bundle.putString("Platform",platform);
-                        profileFragment.setArguments(bundle);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,profileFragment).commit();
-                    }
-                    else if(fragment.equals("POTD"))
-                    {
+                        leetcodeProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,leetcodeProfile).commit();
+                    } else if(fragment.equals("POTD")) {
                         potdFragment = new PotdFragment();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) leetcodePotdMap);
@@ -196,51 +200,44 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
                     }
                 }
-                else
-                {
+                else {
                     Toast.makeText(this, "Please add the Leetcode handle from settings", Toast.LENGTH_SHORT).show();
                 }
-            }
-            else if(menuItem.getTitle() == "Geeksforgeek"){
-                if(menuList.contains("Geeksforgeek"))
-                {
-                    platform = "Geeksforgeek";
+            } else if(menuItem.getTitle() == "Geeksforgeek"){
+                if(menuList.contains("gfg")) {
+                    platform = "gfg";
                     if(fragment.equals("Profile")) {
-                        profileFragment = new ProfileFragment();
+                        gfgProfile = new GfgProfile();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) geeksforgeekMap);
                         bundle.putString("Platform",platform);
-                        profileFragment.setArguments(bundle);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,profileFragment).commit();
-                    }
-                    else if(fragment.equals("POTD"))
-                    {
+                        gfgProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,gfgProfile).commit();
+                    } else if(fragment.equals("POTD")) {
                         potdFragment = new PotdFragment();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) geeksforgeekPotdMap);
                         bundle.putString("Platform",platform);
                         potdFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,potdFragment).commit();
-                    }
-                    else {
+                    } else {
                         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
                     }
                 }
-                else
-                {
+                else {
                     Toast.makeText(this, "Please add the Geeksforgeek handle from settings", Toast.LENGTH_SHORT).show();
                 }
             }
             else if(menuItem.getTitle() == "Settings"){
                 Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
                 if(geeksforgeekMap != null) {
-                    intent.putExtra("gfgHandle",(String)geeksforgeekMap.get("handle"));
+                    intent.putExtra("gfgHandle",(String)geeksforgeekMap.get("Handle"));
                 }
                 if(leetcodeMap != null) {
-                    intent.putExtra("leetcodeHandle",(String)leetcodeMap.get("handle"));
+                    intent.putExtra("leetcodeHandle",(String)leetcodeMap.get("Handle"));
                 }
                 if(codeforcesMap != null){
-                    intent.putExtra("codeforcesHandle",(String)codeforcesMap.get("handle"));
+                    intent.putExtra("codeforcesHandle",(String)codeforcesMap.get("Handle"));
                 }
 
                 startActivity(intent);
@@ -257,8 +254,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void getPotdData()
     {
+        Log.d("CodersHub_Errors", "Fetching Potd data");
         DocumentReference userRef = FirebaseUtil.POTD();
-
         userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
@@ -267,20 +264,23 @@ public class MainActivity extends AppCompatActivity {
                     Map<String, Object> userData = document.getData();
                     if(userData.containsKey("Codeforces"))
                         codeforcesPotdMap = (Map<String,Object>)userData.get("Codeforces");
-                    if(userData.containsKey("Leetcode"))
-                        leetcodePotdMap = (Map<String,Object>)userData.get("Leetcode");
-                    if(userData.containsKey("Geeksforgeek"))
-                        geeksforgeekPotdMap = (Map<String,Object>)userData.get("Geeksforgeek");
-
+                    if(userData.containsKey("LeetCode"))
+                        leetcodePotdMap = (Map<String,Object>)userData.get("LeetCode");
+                    if(userData.containsKey("GeeksForGeeks"))
+                        geeksforgeekPotdMap = (Map<String,Object>)userData.get("GeeksForGeeks");
+                    Log.d("CodersHub_Errors", "Fetching Potd data succesfull");
                 } else {
                     Toast.makeText(MainActivity.this, "User data not found.", Toast.LENGTH_SHORT).show();
+                    Log.d("CodersHub_Errors", "User data not found.");
                 }
             } else {
-                Toast.makeText(MainActivity.this, "Error fetching user data.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error fetching user potd data.", Toast.LENGTH_SHORT).show();
+                Log.d("CodersHub_Errors", "Error fetching user potd data.");
             }
         });
     }
     public void getContestData() {
+        Log.d("CodersHub_Errors", "Fetching contests data");
         DocumentReference userRef = FirebaseUtil.contests();
 
         userRef.get().addOnCompleteListener(task -> {
@@ -290,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
                     // Convert the document to a Map
                     Map<String, Object> userData = document.getData();
 
-                    Log.d("CodersHub Errors", userData.toString());
+                    Log.d("CodersHub_Errors", "Got contests data");
                     contestList = new ArrayList<>();
                     for(Map.Entry<String,Object>entry: userData.entrySet()){
                         Map<String, Object>contestData = (Map<String, Object>)entry.getValue();

@@ -2,6 +2,7 @@ package com.xoxoharsh.codershub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.SetOptions;
-import com.xoxoharsh.codershub.model.CodeforcesModel;
-import com.xoxoharsh.codershub.model.GfgModel;
-import com.xoxoharsh.codershub.model.LeetcodeModel;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
 
 import java.util.HashMap;
@@ -64,22 +61,31 @@ public class SignUpActivity3 extends AppCompatActivity {
     }
     void createAccountInFirebase(String email,String password) {
         changeInProgress(true);
+        Log.d("CodersHub_Errors","Creating account in firebase");
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(SignUpActivity3.this, task -> {
                     if (task.isSuccessful()) {
                         DocumentReference userDocRef = FirebaseUtil.currentUserDetails();
                         Map<String, Object> handlesData = new HashMap<>();
+
                         if (!cfHandle.isEmpty()) {
-                            handlesData.put("Codeforces", new CodeforcesModel(cfHandle));
+                            Map<String,Object>cf = new HashMap<>();
+                            cf.put("Handle",cfHandle);
+                            handlesData.put("codeforces", cf);
                         }
                         if (!lHandle.isEmpty()) {
-                            handlesData.put("Leetcode", new LeetcodeModel(lHandle));
+                            Map<String,Object>le = new HashMap<>();
+                            le.put("Handle",lHandle);
+                            handlesData.put("leetcode", le);
                         }
                         if (!gfgHandle.isEmpty()) {
-                            handlesData.put("Geeksforgeek", new GfgModel(gfgHandle));
+                            Map<String,Object>gfg = new HashMap<>();
+                            gfg.put("Handle",gfgHandle);
+                            handlesData.put("gfg", gfg);
                         }
-                        userDocRef.set(handlesData, SetOptions.merge())
+                        Log.d("CodersHub_Errors",handlesData.toString());
+                        userDocRef.set(handlesData)
                                 .addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()) {
                                         Toast.makeText(SignUpActivity3.this, "Succesfully created account, Check your email to verify", Toast.LENGTH_LONG).show();
