@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/backbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background"
@@ -55,8 +55,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/update_handles"
         android:layout_width="383dp"
-        android:layout_height="318dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/myrect"
         android:elevation="2dp"
         android:padding="10dp"
@@ -78,83 +78,123 @@
         <EditText
             android:id="@+id/gfg_handle"
             android:layout_width="342dp"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/selectionHighlight"
-            android:hint="Geeksforgeek"
+            android:hint="-"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#78909C"
-            android:textSize="25sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updatehandles_heading" />
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
             android:id="@+id/leetcode_handle"
             android:layout_width="342dp"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/selectionHighlight"
-            android:hint="Leetcode"
+            android:hint="-"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#78909C"
-            android:textSize="25sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gfg_handle" />
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <EditText
             android:id="@+id/codeforces_handle"
             android:layout_width="342dp"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/selectionHighlight"
-            android:hint="Codeforces"
+            android:hint="-"
+            android:layout_marginTop="10dp"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#78909C"
-            android:textSize="25sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leetcode_handle" />
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <Button
+            android:id="@+id/updatehandlebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/updatehandlebutton"
+            android:layout_marginTop="20dp"
             android:text="Apply Changes"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/codeforces_handle" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Geekforgeek"
+            android:textColor="@color/operators"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.064"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updatehandles_heading" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Leetcode"
+            android:textColor="@color/operators"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.019"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/gfg_handle" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codeforces"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/operators"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="@+id/leetcode_handle"
+            app:layout_constraintTop_toBottomOf="@+id/leetcode_handle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/update_password"
-        android:layout_width="383dp"
-        android:layout_height="282dp"
+        android:layout_width="382dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/myrect"
         android:elevation="2dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_handles">
+        app:layout_constraintTop_toBottomOf="@+id/update_handles"
+        app:layout_constraintVertical_bias="0.057">
 
         <TextView
             android:id="@+id/changePassword"
@@ -167,6 +207,58 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="342dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/selectionHighlight"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#78909C"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/changePassword" />
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="342dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/selectionHighlight"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#78909C"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.439"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <Button
+            android:id="@+id/updatepasswordbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Apply Changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

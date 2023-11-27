@@ -1,5 +1,6 @@
 package com.xoxoharsh.codershub.util;
 
+import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -24,5 +25,9 @@ public class FirebaseUtil {
     public static DocumentReference POTD()
     {
         return FirebaseFirestore.getInstance().collection("questions").document("POTD");
+    }
+    public static DocumentReference contests()
+    {
+        return FirebaseFirestore.getInstance().collection("contests").document("contests");
     }
 }

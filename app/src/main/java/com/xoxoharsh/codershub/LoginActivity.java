@@ -79,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void fetchUserDataAndStartMainActivity() {
         DocumentReference userRef = FirebaseUtil.currentUserDetails();
-
         userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
