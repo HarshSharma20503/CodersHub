@@ -196,6 +196,18 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Enter atleast one handle to proceed"
+            android:textSize="15dp"
+            android:textColor="@color/functions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gfg_handle" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

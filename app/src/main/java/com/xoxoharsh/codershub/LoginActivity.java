@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                     fetchUserDataAndStartMainActivity();
 
                 }else{
+                    changeInProgress(false);
                     Log.d("CodersHub_Errors","Email not verified, Please verify your email.");
                     Utility.showToast(LoginActivity.this,"Email not verified, Please verify your email.");
                 }

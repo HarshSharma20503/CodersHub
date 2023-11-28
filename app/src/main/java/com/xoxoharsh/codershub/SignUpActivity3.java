@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.telecom.Call;
@@ -24,9 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.security.auth.callback.Callback;
-
 public class SignUpActivity3 extends AppCompatActivity {
-
     EditText emailIdEditText,passwordEditText,confirmPasswordEditText;
     Button createAccountBtn;
     TextView loginTextView;
@@ -36,29 +33,24 @@ public class SignUpActivity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up3);
-
         Log.d("CodersHub_Errors","Entered SignupActivity3");
-
         emailIdEditText = findViewById(R.id.emailId);
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.confirmPassword);
         createAccountBtn = findViewById(R.id.createAccount);
         loginTextView = findViewById(R.id.login);
         progressBar = findViewById(R.id.Progress_Bar);
-
         Intent intent = getIntent();
         cfHandle = intent.getStringExtra("codeforces");
         lHandle = intent.getStringExtra("leetcode");
         gfgHandle = intent.getStringExtra("gfg");
-
         createAccountBtn.setOnClickListener((v)-> createAccount());
         loginTextView.setOnClickListener((v)-> startActivity(new Intent(SignUpActivity3.this,LoginActivity.class)));
-
     }
     void createAccount(){
-        String email  = emailIdEditText.getText().toString();
-        String password  = passwordEditText.getText().toString();
-        String confirmPassword  = confirmPasswordEditText.getText().toString();
+        String email  = emailIdEditText.getText().toString().trim();
+        String password  = passwordEditText.getText().toString().trim();
+        String confirmPassword  = confirmPasswordEditText.getText().toString().trim();
         boolean isValidated = validateData(email,password,confirmPassword);
         if(!isValidated){
             return;
@@ -74,7 +66,6 @@ public class SignUpActivity3 extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         DocumentReference userDocRef = FirebaseUtil.currentUserDetails();
                         Map<String, Object> handlesData = new HashMap<>();
-
                         if (!cfHandle.isEmpty()) {
                             Map<String,Object>cf = new HashMap<>();
                             cf.put("Handle",cfHandle);

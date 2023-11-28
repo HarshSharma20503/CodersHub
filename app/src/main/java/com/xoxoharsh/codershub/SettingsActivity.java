@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,28 +17,22 @@ import com.xoxoharsh.codershub.util.FirebaseUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-
 public class SettingsActivity extends AppCompatActivity {
-
     String gfgHandle,leetcodeHandle,codeforcesHandle;
-
     EditText GfgHandle,LeetcodeHandle,CodeforcesHandle,ChangePassword,ConfirmPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         Log.d("CodersHub_Errors","Entered SettingsActivity");
-
         gfgHandle = getIntent().getStringExtra("gfgHandle");
         leetcodeHandle = getIntent().getStringExtra("leetcodeHandle");
         codeforcesHandle = getIntent().getStringExtra("codeforcesHandle");
-
         GfgHandle = findViewById(R.id.gfg_handle);
         LeetcodeHandle = findViewById(R.id.leetcode_handle);
         CodeforcesHandle = findViewById(R.id.codeforces_handle);
         ChangePassword = findViewById(R.id.password);
         ConfirmPassword = findViewById(R.id.confirmPassword);
-
         if(gfgHandle != null) {
             GfgHandle.setText(gfgHandle);
         }
@@ -49,11 +42,9 @@ public class SettingsActivity extends AppCompatActivity {
         if(codeforcesHandle != null) {
             CodeforcesHandle.setText(codeforcesHandle);
         }
-
         findViewById(R.id.backbutton).setOnClickListener((v)->{
             finish();
         });
-
         findViewById(R.id.updatehandlebutton).setOnClickListener((v)-> updateHandles());
         findViewById(R.id.updatepasswordbutton).setOnClickListener((v)-> updatePassword());
     }
@@ -61,11 +52,10 @@ public class SettingsActivity extends AppCompatActivity {
         String newCfHandle = CodeforcesHandle.getText().toString().trim();
         String newLHandle = LeetcodeHandle.getText().toString().trim();
         String newGfgHandle = GfgHandle.getText().toString().trim();
-
+        Log.d("CodersHub_Errors", "Clicked Handles apply button");
         // Update the document with new handles
         DocumentReference userDocRef = FirebaseUtil.currentUserDetails();
         Map<String, Object> updatedHandles = new HashMap<>();
-
         if (!newCfHandle.isEmpty()) {
             Map<String,Object>cf = new HashMap<>();
             cf.put("Handle",newCfHandle);
@@ -81,10 +71,19 @@ public class SettingsActivity extends AppCompatActivity {
             gfg.put("Handle",newGfgHandle);
             updatedHandles.put("gfg", gfg);
         }
-
         userDocRef.set(updatedHandles)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        SendRequestWithoutResponseTask task2 = new SendRequestWithoutResponseTask();
+                        task2.setCallback(new SendRequestWithoutResponseTask.Callback() {
+                            @Override
+                            public void onTaskCompleted(int responseCode) {
+                                Log.d("CodersHub_Errors", "Task completed with response code: " + responseCode);
+                            }
+                        });
+                        Toast.makeText(SettingsActivity.this, "Scrapping your Data please wait for few seconds", Toast.LENGTH_LONG).show();
+                        task2.execute(FirebaseUtil.currentUserEmail());
+                        Log.d("CodersHub_Errors","Finish seding request");
                         Toast.makeText(SettingsActivity.this, "Handles updated successfully, Please Login again to see effect", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(SettingsActivity.this, "Failed to update handles", Toast.LENGTH_SHORT).show();
