@@ -1,18 +1,18 @@
 package com.xoxoharsh.codershub;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.SetOptions;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
 
 import java.util.HashMap;
@@ -42,9 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
         if(codeforcesHandle != null) {
             CodeforcesHandle.setText(codeforcesHandle);
         }
-        findViewById(R.id.backbutton).setOnClickListener((v)->{
-            finish();
-        });
+        findViewById(R.id.backbutton).setOnClickListener((v)-> finish());
         findViewById(R.id.updatehandlebutton).setOnClickListener((v)-> updateHandles());
         findViewById(R.id.updatepasswordbutton).setOnClickListener((v)-> updatePassword());
     }
@@ -107,8 +105,7 @@ public class SettingsActivity extends AppCompatActivity {
         String confirmPass = ChangePassword.getText().toString();
         if(validateData(pass,confirmPass)) {
             if (user != null) {
-                String newPassword = pass;
-                user.updatePassword(newPassword)
+                user.updatePassword(pass)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

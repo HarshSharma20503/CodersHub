@@ -1,7 +1,7 @@
 package com.xoxoharsh.codershub;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -85,38 +85,42 @@ public class MainActivity extends AppCompatActivity {
             if(item.getItemId() == R.id.menu_profile) {
                 Bundle bundle = new Bundle();
                 Log.d("CodersHub_Errors","Entered bottomNaviagtionView");
-                if(platform.equals("codeforces")) {
-                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Codeforces");
-                    bundle.putSerializable("userData", (Serializable) codeforcesMap);
-                    codeforcesProfile.setArguments(bundle);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,codeforcesProfile).commit();
-                }
-                else if(platform.equals("leetcode")) {
-                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Leetcode");
-                    bundle.putSerializable("userData", (Serializable) leetcodeMap);
-                    leetcodeProfile.setArguments(bundle);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,leetcodeProfile).commit();
-                }
-                else if(platform.equals("gfg")) {
-                    Log.d("CodersHub_Errors","Entered bottomNaviagtionView Geeksforgeek");
-                    bundle.putSerializable("userData", (Serializable) geeksforgeekMap);
-                    gfgProfile.setArguments(bundle);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,gfgProfile).commit();
+                switch (platform) {
+                    case "codeforces":
+                        Log.d("CodersHub_Errors", "Entered bottomNaviagtionView Codeforces");
+                        bundle.putSerializable("userData", (Serializable) codeforcesMap);
+                        codeforcesProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, codeforcesProfile).commit();
+                        break;
+                    case "leetcode":
+                        Log.d("CodersHub_Errors", "Entered bottomNaviagtionView Leetcode");
+                        bundle.putSerializable("userData", (Serializable) leetcodeMap);
+                        leetcodeProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, leetcodeProfile).commit();
+                        break;
+                    case "gfg":
+                        Log.d("CodersHub_Errors", "Entered bottomNaviagtionView Geeksforgeek");
+                        bundle.putSerializable("userData", (Serializable) geeksforgeekMap);
+                        gfgProfile.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, gfgProfile).commit();
+                        break;
                 }
             }
             if(item.getItemId() == R.id.menu_potd) {
                 Bundle bundle = new Bundle();
                 Log.d("Harsh Error","Platform value is "+platform);
-                if(platform.equals("leetcode")) {
-                    bundle.putSerializable("userData", (Serializable) leetcodePotdMap);
-                }
-                else if(platform.equals("codeforces")) {
+                switch (platform) {
+                    case "leetcode":
+                        bundle.putSerializable("userData", (Serializable) leetcodePotdMap);
+                        break;
+                    case "codeforces":
 
-                    bundle.putSerializable("userData", (Serializable) codeforcesPotdMap);
-                }
-                else if(platform.equals("gfg")) {
-                    Log.d("Harsh Error","putting GeeksforgeekPotdMap");
-                    bundle.putSerializable("userData", (Serializable) geeksforgeekPotdMap);
+                        bundle.putSerializable("userData", (Serializable) codeforcesPotdMap);
+                        break;
+                    case "gfg":
+                        Log.d("Harsh Error", "putting GeeksforgeekPotdMap");
+                        bundle.putSerializable("userData", (Serializable) geeksforgeekPotdMap);
+                        break;
                 }
                 bundle.putString("Platform",platform);
                 potdFragment.setArguments(bundle);

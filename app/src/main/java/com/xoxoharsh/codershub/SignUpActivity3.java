@@ -1,7 +1,6 @@
 package com.xoxoharsh.codershub;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -10,19 +9,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.common.api.Response;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.security.auth.callback.Callback;
 public class SignUpActivity3 extends AppCompatActivity {
     EditText emailIdEditText,passwordEditText,confirmPasswordEditText;
     Button createAccountBtn;

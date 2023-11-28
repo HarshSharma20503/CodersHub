@@ -36,12 +36,17 @@ public class PotdFragment extends Fragment {
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
             Log.d("Harsh Error","recieved data");
             String website = ((String)bundle.getString("Platform"));
-            if(website.equals("codeforces"))
-                platform.setText("Codeforces");
-            else if(website.equals("leetcode"))
-                platform.setText("Leetcode");
-            else if(website.equals("gfg"))
-                platform.setText("Geeksforgeeks");
+            switch (website) {
+                case "codeforces":
+                    platform.setText("Codeforces");
+                    break;
+                case "leetcode":
+                    platform.setText("Leetcode");
+                    break;
+                case "gfg":
+                    platform.setText("Geeksforgeeks");
+                    break;
+            }
 
             String pStatement = ((String)userData.get("Problem Statement"));
             String example = ((String)userData.get("Examples"));
