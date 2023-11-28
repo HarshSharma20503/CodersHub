@@ -1,16 +1,13 @@
 package com.xoxoharsh.codershub;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.fragment.app.Fragment;
 import java.util.Map;
 
 public class LeetcodeProfile extends Fragment {
@@ -25,7 +22,6 @@ public class LeetcodeProfile extends Fragment {
         View view = inflater.inflate(R.layout.fragment_leetcode_profile, container, false);
 
         Log.d("CodersHub_Errors","Entered Leetcode Profile Fragment");
-
         handle = view.findViewById(R.id.username);
         totalQuestions = view.findViewById(R.id.total_question);
         easyQuestions = view.findViewById(R.id.easy_questions1);
@@ -74,8 +70,6 @@ public class LeetcodeProfile extends Fragment {
             Log.d("CodersHub_Errors", "Data Not received in fragment");
             Toast.makeText(getContext(), "Data Not received in fragment", Toast.LENGTH_SHORT).show();
         }
-
-
         return view;
     }
 }

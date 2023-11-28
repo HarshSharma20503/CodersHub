@@ -1,14 +1,13 @@
 package com.xoxoharsh.codershub;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,6 +15,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.xoxoharsh.codershub.model.Contest;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
+import com.xoxoharsh.codershub.util.Utility;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,17 +30,18 @@ public class MainActivity extends AppCompatActivity {
     ContestsFragment contestsFragment;
     BottomNavigationView bottomNavigationView;
     ImageButton menuBtn;
-    Map<String, Object> geeksforgeekMap,leetcodeMap,codeforcesMap;
-    Map<String, Object> geeksforgeekPotdMap,leetcodePotdMap,codeforcesPotdMap;
+    Map<String, Object> geeksforgeekMap,leetcodeMap,codeforcesMap,geeksforgeekPotdMap,leetcodePotdMap,codeforcesPotdMap;
     List<String> menuList;
     List<Contest> contestList;
     String platform;
+    private SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("CodersHub_Errors","Entered MainActivity");
 
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         menuBtn = findViewById(R.id.menu_btn);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         codeforcesProfile = new CodeforcesProfile();
@@ -135,6 +136,26 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
+        swipeRefreshLayout.setDistanceToTriggerSync(400);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Perform your refresh action here
+                // For example, fetch new data from the server
+                Log.d("CodersHub_Errors","Entered OnRefresh Function");
+                Utility.updateProfile();
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Toast.makeText(MainActivity.this, "Login Again to see the changes", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+                finish();
+
+                swipeRefreshLayout.setRefreshing(false);
+                finish();
+            }
+        });
     }
     void showMenu() {
         PopupMenu popupMenu = new PopupMenu(MainActivity.this, menuBtn);
@@ -255,9 +276,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
     }
-
-    public void getPotdData()
-    {
+    public void getPotdData() {
         Log.d("CodersHub_Errors", "Fetching Potd data");
         DocumentReference userRef = FirebaseUtil.POTD();
         userRef.get().addOnCompleteListener(task -> {

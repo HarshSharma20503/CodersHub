@@ -1,321 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/background"
-    tools:context=".CodeforcesProfile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="361dp"
-        android:layout_height="50dp"
-        android:background="@drawable/myrect"
-        android:elevation="2dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/background"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".CodeforcesProfile">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Platform :"
-            android:textColor="@color/strings"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.063"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/platform"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Codeforces"
-            android:textColor="@color/operators"
-            android:textSize="20sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.877"
-            app:layout_constraintStart_toEndOf="@+id/textView6" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="361dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/myrect"
-        android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Handle :"
-            android:textColor="@color/strings"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.068"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="20sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.826"
-            app:layout_constraintStart_toEndOf="@+id/textView8" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/myrect"
-        android:elevation="2dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
-
-        <TextView
-            android:id="@+id/contests_attempted2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="361dp"
+            android:layout_height="50dp"
+            android:background="@drawable/myrect"
+            android:elevation="2dp"
             android:layout_marginTop="8dp"
-            android:text="Max Rank:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/contests_attempted"
-            app:layout_constraintTop_toBottomOf="@+id/contests_attempted" />
-
-        <TextView
-            android:id="@+id/maxRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/contests_attempted2"
-            app:layout_constraintEnd_toEndOf="@+id/currentRank" />
-
-        <TextView
-            android:id="@+id/contests"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Contests :"
-            android:textColor="@color/strings"
-            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.008">
 
-        <TextView
-            android:id="@+id/contests_attempted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Current Rank:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/contests"
-            app:layout_constraintTop_toBottomOf="@+id/contests" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Platform :"
+                android:textColor="@color/strings"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.063"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/contests_rating_section"
-            android:layout_width="135dp"
-            android:layout_height="26dp"
+            <TextView
+                android:id="@+id/platform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Codeforces"
+                android:textColor="@color/operators"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.877"
+                app:layout_constraintStart_toEndOf="@+id/textView6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="361dp"
+            android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:text="Current Rating:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/contests_attempted2"
-            app:layout_constraintTop_toBottomOf="@+id/contests_attempted2" />
-
-        <TextView
-            android:id="@+id/contests_highest_section"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Max Rating:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/contests_rating_section"
-            app:layout_constraintTop_toBottomOf="@+id/contests_rating_section" />
-
-        <TextView
-            android:id="@+id/currentRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/contests_attempted"
+            android:background="@drawable/myrect"
+            android:elevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.807"
-            app:layout_constraintStart_toEndOf="@+id/contests_attempted" />
-
-        <TextView
-            android:id="@+id/currentRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/contests_rating_section"
-            app:layout_constraintEnd_toEndOf="@+id/currentRank" />
-
-        <TextView
-            android:id="@+id/maxRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textAlignment="textEnd"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/contests_highest_section"
-            app:layout_constraintEnd_toEndOf="@+id/currentRating" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/myrect"
-        android:elevation="2dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
-
-        <TextView
-            android:id="@+id/maxCodingStreak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Max Coding Streak:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/questionSolved"
-            app:layout_constraintTop_toBottomOf="@+id/questionSolved" />
-
-        <TextView
-            android:id="@+id/maxcodingStreakbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/maxCodingStreak"
-            app:layout_constraintEnd_toEndOf="@+id/questionsSolved" />
-
-        <TextView
-            android:id="@+id/Others"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Others :"
-            android:textColor="@color/strings"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
-        <TextView
-            android:id="@+id/questionSolved"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Question Solved:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/Others"
-            app:layout_constraintTop_toBottomOf="@+id/Others" />
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Handle :"
+                android:textColor="@color/strings"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.068"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/NumberOfContribution"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.826"
+                app:layout_constraintStart_toEndOf="@+id/textView8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="362dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No. of Contribution:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/maxCodingStreak"
-            app:layout_constraintTop_toBottomOf="@+id/maxCodingStreak" />
-
-        <TextView
-            android:id="@+id/NumberOfFriends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="No. of Friends:"
-            android:textColor="@color/comments"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/NumberOfContribution"
-            app:layout_constraintTop_toBottomOf="@+id/NumberOfContribution" />
-
-        <TextView
-            android:id="@+id/questionsSolved"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/questionSolved"
+            android:background="@drawable/myrect"
+            android:elevation="2dp"
+            android:paddingBottom="15dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.791"
-            app:layout_constraintStart_toEndOf="@+id/questionSolved" />
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
-        <TextView
-            android:id="@+id/noofcontributions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="?"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/NumberOfContribution"
-            app:layout_constraintEnd_toEndOf="@+id/questionsSolved" />
+            <TextView
+                android:id="@+id/contests_attempted2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Max Rank:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/contests_attempted"
+                app:layout_constraintTop_toBottomOf="@+id/contests_attempted" />
 
-        <TextView
-            android:id="@+id/nooffriends"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/maxRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/contests_attempted2"
+                app:layout_constraintEnd_toEndOf="@+id/currentRank" />
+
+            <TextView
+                android:id="@+id/contests"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Contests :"
+                android:textColor="@color/strings"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/contests_attempted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Current Rank:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/contests"
+                app:layout_constraintTop_toBottomOf="@+id/contests" />
+
+            <TextView
+                android:id="@+id/contests_rating_section"
+                android:layout_width="135dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="8dp"
+                android:text="Current Rating:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/contests_attempted2"
+                app:layout_constraintTop_toBottomOf="@+id/contests_attempted2" />
+
+            <TextView
+                android:id="@+id/contests_highest_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Max Rating:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/contests_rating_section"
+                app:layout_constraintTop_toBottomOf="@+id/contests_rating_section" />
+
+            <TextView
+                android:id="@+id/currentRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/contests_attempted"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.807"
+                app:layout_constraintStart_toEndOf="@+id/contests_attempted" />
+
+            <TextView
+                android:id="@+id/currentRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/contests_rating_section"
+                app:layout_constraintEnd_toEndOf="@+id/currentRank" />
+
+            <TextView
+                android:id="@+id/maxRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textAlignment="textEnd"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/contests_highest_section"
+                app:layout_constraintEnd_toEndOf="@+id/currentRating" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="362dp"
             android:layout_height="wrap_content"
-            android:text="?"
-            android:textAlignment="textEnd"
-            android:textColor="@color/operators"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/NumberOfFriends"
-            app:layout_constraintEnd_toEndOf="@+id/noofcontributions" />
+            android:layout_marginTop="8dp"
+            android:background="@drawable/myrect"
+            android:elevation="2dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+            <TextView
+                android:id="@+id/maxCodingStreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Max Coding Streak:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/questionSolved"
+                app:layout_constraintTop_toBottomOf="@+id/questionSolved" />
+
+            <TextView
+                android:id="@+id/maxcodingStreakbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/maxCodingStreak"
+                app:layout_constraintEnd_toEndOf="@+id/questionsSolved" />
+
+            <TextView
+                android:id="@+id/Others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Others :"
+                android:textColor="@color/strings"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/questionSolved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Question Solved:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/Others"
+                app:layout_constraintTop_toBottomOf="@+id/Others" />
+
+            <TextView
+                android:id="@+id/NumberOfContribution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="No. of Contribution:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/maxCodingStreak"
+                app:layout_constraintTop_toBottomOf="@+id/maxCodingStreak" />
+
+            <TextView
+                android:id="@+id/NumberOfFriends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="No. of Friends:"
+                android:textColor="@color/comments"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/NumberOfContribution"
+                app:layout_constraintTop_toBottomOf="@+id/NumberOfContribution" />
+
+            <TextView
+                android:id="@+id/questionsSolved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/questionSolved"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.791"
+                app:layout_constraintStart_toEndOf="@+id/questionSolved" />
+
+            <TextView
+                android:id="@+id/noofcontributions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/NumberOfContribution"
+                app:layout_constraintEnd_toEndOf="@+id/questionsSolved" />
+
+            <TextView
+                android:id="@+id/nooffriends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="?"
+                android:textAlignment="textEnd"
+                android:textColor="@color/operators"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/NumberOfFriends"
+                app:layout_constraintEnd_toEndOf="@+id/noofcontributions" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
