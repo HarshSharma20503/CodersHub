@@ -37,21 +37,41 @@ public class GfgProfile extends Fragment {
         potdStreak = view.findViewById(R.id.codingScorebox);
 
         Bundle bundle = getArguments();
-        if(bundle != null) {
-            Log.d("CodersHub_Errors","Recieved Data");
+        if (bundle != null) {
+            Log.d("CodersHub_Errors", "Received Data");
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
-            handle.setText(userData.get("Handle").toString());
-            totalQuestions.setText(userData.get("Problem_Solved").toString());
-            easyQuestions.setText(userData.get("Easy_Ques_Solved").toString());
-            mediumQuestions.setText(userData.get("Medium_Ques_Solved").toString());
-            hardQuestions.setText(userData.get("Hard_Ques_Solved").toString());
-            codingScore.setText(userData.get("Coding_Score").toString());
-            monthlyCodingScore.setText(userData.get("Monthly_Coding_Score").toString());
-            potdStreak.setText(userData.get("POTD_Streak").toString());
+            Log.d("CodersHub_Errors", userData.toString());
+
+            // Check if the key exists before setting the text
+            if (userData.containsKey("Handle")) {
+                handle.setText(userData.get("Handle").toString());
+            }
+            if (userData.containsKey("Problem_Solved")) {
+                totalQuestions.setText(userData.get("Problem_Solved").toString());
+            }
+            if (userData.containsKey("Easy_Ques_Solved")) {
+                easyQuestions.setText(userData.get("Easy_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Medium_Ques_Solved")) {
+                mediumQuestions.setText(userData.get("Medium_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Hard_Ques_Solved")) {
+                hardQuestions.setText(userData.get("Hard_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Coding_Score")) {
+                codingScore.setText(userData.get("Coding_Score").toString());
+            }
+            if (userData.containsKey("Monthly_Coding_Score")) {
+                monthlyCodingScore.setText(userData.get("Monthly_Coding_Score").toString());
+            }
+            if (userData.containsKey("POTD_Streak")) {
+                potdStreak.setText(userData.get("POTD_Streak").toString());
+            }
         } else {
-            Log.d("CodersHub_Errors","Data Not recieved in fragment");
-            Toast.makeText(getContext(), "Data Not recieved in fragment", Toast.LENGTH_SHORT).show();
+            Log.d("CodersHub_Errors", "Data Not received in fragment");
+            Toast.makeText(getContext(), "Data Not received in fragment", Toast.LENGTH_SHORT).show();
         }
+
 
         return view;
     }

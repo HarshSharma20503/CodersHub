@@ -2,6 +2,7 @@ package com.xoxoharsh.codershub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -13,12 +14,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.Response;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.xoxoharsh.codershub.util.FirebaseUtil;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.security.auth.callback.Callback;
 
 public class SignUpActivity3 extends AppCompatActivity {
 
@@ -27,11 +32,12 @@ public class SignUpActivity3 extends AppCompatActivity {
     TextView loginTextView;
     ProgressBar progressBar;
     private String cfHandle,lHandle,gfgHandle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up3);
+
+        Log.d("CodersHub_Errors","Entered SignupActivity3");
 
         emailIdEditText = findViewById(R.id.emailId);
         passwordEditText = findViewById(R.id.password);
@@ -88,12 +94,24 @@ public class SignUpActivity3 extends AppCompatActivity {
                         userDocRef.set(handlesData)
                                 .addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()) {
-                                        Toast.makeText(SignUpActivity3.this, "Succesfully created account, Check your email to verify", Toast.LENGTH_LONG).show();
+                                        Log.d("CodersHub_Errors","Handles Stored succesfully");
+                                        Toast.makeText(SignUpActivity3.this, "Succesfully created account", Toast.LENGTH_LONG).show();
+                                        SendRequestWithoutResponseTask task2 = new SendRequestWithoutResponseTask();
+                                        task2.setCallback(new SendRequestWithoutResponseTask.Callback() {
+                                            @Override
+                                            public void onTaskCompleted(int responseCode) {
+                                                Log.d("CodersHub_Errors", "Task completed with response code: " + responseCode);
+                                            }
+                                        });
+                                        Toast.makeText(SignUpActivity3.this, "Scrapping your Data please wait for few seconds", Toast.LENGTH_LONG).show();
+                                        task2.execute(FirebaseUtil.currentUserEmail());
+                                        Toast.makeText(SignUpActivity3.this, "Please verify your email to continue", Toast.LENGTH_SHORT).show();
+                                        Log.d("CodersHub_Errors","request send successfully");
+
                                     } else {
                                         String errorMsg = "Handles not stored";
                                         Toast.makeText(SignUpActivity3.this, errorMsg, Toast.LENGTH_SHORT).show();
                                     }
-
                                     changeInProgress(false);
                                     firebaseAuth.getCurrentUser().sendEmailVerification();
                                     firebaseAuth.signOut();

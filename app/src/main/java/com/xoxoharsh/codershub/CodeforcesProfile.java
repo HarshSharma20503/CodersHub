@@ -35,22 +35,44 @@ public class CodeforcesProfile extends Fragment {
         noOfFriends = view.findViewById(R.id.nooffriends);
         Bundle bundle = getArguments();
 
-        if(bundle != null) {
-            Log.d("CodersHub_Errors","Recieved Data");
+        if (bundle != null) {
+            Log.d("CodersHub_Errors", "Received Data");
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
-            handle.setText(userData.get("Handle").toString());
-            currentRank.setText(userData.get("Current_Rank").toString());
-            maxRank.setText(userData.get("Max_Rank").toString());
-            currentRating.setText(userData.get("Current_Rating").toString());
-            maxRating.setText(userData.get("Max_Rating").toString());
-            questionSolved.setText(userData.get("Number_Of_Ques_solved").toString());
-            maxCodingStreak.setText(userData.get("Max_Streak").toString());
-            noOfContribution.setText(userData.get("Number_Of_Contributions").toString());
-            noOfFriends.setText(userData.get("Number_Of_Friends").toString());
+            Log.d("CodersHub_Errors", userData.toString());
+
+            // Check if the key exists before setting the text
+            if (userData.containsKey("Handle")) {
+                handle.setText(userData.get("Handle").toString());
+            }
+            if (userData.containsKey("Current_Rank")) {
+                currentRank.setText(userData.get("Current_Rank").toString());
+            }
+            if (userData.containsKey("Max_Rank")) {
+                maxRank.setText(userData.get("Max_Rank").toString());
+            }
+            if (userData.containsKey("Current_Rating")) {
+                currentRating.setText(userData.get("Current_Rating").toString());
+            }
+            if (userData.containsKey("Max_Rating")) {
+                maxRating.setText(userData.get("Max_Rating").toString());
+            }
+            if (userData.containsKey("Number_Of_Ques_solved")) {
+                questionSolved.setText(userData.get("Number_Of_Ques_solved").toString());
+            }
+            if (userData.containsKey("Max_Streak")) {
+                maxCodingStreak.setText(userData.get("Max_Streak").toString());
+            }
+            if (userData.containsKey("Number_Of_Contributions")) {
+                noOfContribution.setText(userData.get("Number_Of_Contributions").toString());
+            }
+            if (userData.containsKey("Number_Of_Friends")) {
+                noOfFriends.setText(userData.get("Number_Of_Friends").toString());
+            }
         } else {
-            Log.d("CodersHub_Errors","Data Not recieved in fragment");
-            Toast.makeText(getContext(), "Data Not recieved in fragment", Toast.LENGTH_SHORT).show();
+            Log.d("CodersHub_Errors", "Data Not received in fragment");
+            Toast.makeText(getContext(), "Data Not received in fragment", Toast.LENGTH_SHORT).show();
         }
+
         return view;
     }
 }

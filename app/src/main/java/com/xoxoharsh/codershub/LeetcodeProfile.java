@@ -37,25 +37,42 @@ public class LeetcodeProfile extends Fragment {
         globalRank = view.findViewById(R.id.globalrankbox);
 
         Bundle bundle = getArguments();
-        if(bundle != null)
-        {
-            Log.d("CodersHub_Errors","Recieved Data");
+        if (bundle != null) {
+            Log.d("CodersHub_Errors", "Received Data");
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
-            Log.d("CodersHub_Errors",userData.toString());
-            handle.setText((String)userData.get("Handle"));
-            totalQuestions.setText((String)userData.get("Number_Of_Ques_solved"));
+            Log.d("CodersHub_Errors", userData.toString());
 
-            easyQuestions.setText(userData.get("Easy_Ques_Solved").toString());
-            mediumQuestions.setText(userData.get("Medium_Ques_Solved").toString());
-            hardQuestions.setText(userData.get("Difficult_Ques_Solved").toString());
-            attempted.setText(userData.get("Contest_Attempted").toString());
-            Rating.setText((String)userData.get("Current_Rating"));
-            noOfBadges.setText((String)userData.get("Number_Of_Badges"));
-            globalRank.setText((String)userData.get("Global_Rank_In_Contest"));
-        }
-        else {
-            Log.d("CodersHub_Errors","Data Not recieved in fragment");
-            Toast.makeText(getContext(), "Data Not recieved in fragment", Toast.LENGTH_SHORT).show();
+            // Check if the key exists before setting the text
+            if (userData.containsKey("Handle")) {
+                handle.setText((String) userData.get("Handle"));
+            }
+            if (userData.containsKey("Number_Of_Ques_solved")) {
+                totalQuestions.setText((String) userData.get("Number_Of_Ques_solved"));
+            }
+            if (userData.containsKey("Easy_Ques_Solved")) {
+                easyQuestions.setText(userData.get("Easy_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Medium_Ques_Solved")) {
+                mediumQuestions.setText(userData.get("Medium_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Difficult_Ques_Solved")) {
+                hardQuestions.setText(userData.get("Difficult_Ques_Solved").toString());
+            }
+            if (userData.containsKey("Contest_Attempted")) {
+                attempted.setText(userData.get("Contest_Attempted").toString());
+            }
+            if (userData.containsKey("Current_Rating")) {
+                Rating.setText((String) userData.get("Current_Rating"));
+            }
+            if (userData.containsKey("Number_Of_Badges")) {
+                noOfBadges.setText((String) userData.get("Number_Of_Badges"));
+            }
+            if (userData.containsKey("Global_Rank_In_Contest")) {
+                globalRank.setText((String) userData.get("Global_Rank_In_Contest"));
+            }
+        } else {
+            Log.d("CodersHub_Errors", "Data Not received in fragment");
+            Toast.makeText(getContext(), "Data Not received in fragment", Toast.LENGTH_SHORT).show();
         }
 
 

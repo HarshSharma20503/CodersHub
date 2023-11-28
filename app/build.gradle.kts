@@ -44,4 +44,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.firebaseui:firebase-ui-firestore:8.0.2")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
 }
