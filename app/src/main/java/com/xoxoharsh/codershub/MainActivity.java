@@ -2,10 +2,13 @@ package com.xoxoharsh.codershub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     GfgProfile gfgProfile;
     PotdFragment potdFragment;
     ContestsFragment contestsFragment;
+    FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
     ImageButton menuBtn;
     Map<String, Object> geeksforgeekMap,leetcodeMap,codeforcesMap,geeksforgeekPotdMap,leetcodePotdMap,codeforcesPotdMap;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("CodersHub_Errors","Entered MainActivity");
+        frameLayout = findViewById(R.id.main_frame_layout);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         menuBtn = findViewById(R.id.menu_btn);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -130,21 +135,20 @@ public class MainActivity extends AppCompatActivity {
         });
         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
         swipeRefreshLayout.setDistanceToTriggerSync(400);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Log.d("CodersHub_Errors","Entered OnRefresh Function");
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            boolean isAtTop = frameLayout.getScrollY() == 0;
+            if (isAtTop) {
+                Log.d("CodersHub_Errors", "Entered OnRefresh Function");
                 Utility.updateProfile();
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                 firebaseAuth.signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 Toast.makeText(MainActivity.this, "Login Again to see the changes", Toast.LENGTH_LONG).show();
-                startActivity(intent);
-                finish();
-                swipeRefreshLayout.setRefreshing(false);
+                startActivity(intent1);
                 finish();
             }
+            swipeRefreshLayout.setRefreshing(false);
         });
     }
     void showMenu() {

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:id="@+id/swipeRefreshLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:id="@+id/constraintLayoutMain"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_toolbar"
             android:layout_width="0dp"
@@ -54,24 +51,31 @@
                 app:tint="@color/white"
                 tools:ignore="TouchTargetSizeCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <FrameLayout
-            android:id="@+id/main_frame_layout"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@id/main_toolbar"
+            android:id="@+id/swipeRefreshLayout"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
+            >
+            <FrameLayout
+                android:id="@+id/main_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@id/bottom_navigation"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-            app:layout_constraintTop_toBottomOf="@+id/main_frame_layout"
+            app:layout_constraintTop_toBottomOf="@+id/swipeRefreshLayout"
             app:layout_constraintVertical_bias="1.0"
             tools:layout_editor_absoluteX="0dp" />
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -91,5 +95,4 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_menu" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
