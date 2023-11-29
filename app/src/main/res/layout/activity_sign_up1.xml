@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:weightSum="100"
     tools:context=".SignUpActivity1">
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -19,14 +18,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/keywords">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,14 +39,12 @@
                 android:textColor="#3E2723"
                 android:textSize="18sp" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/text">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,14 +60,12 @@
                 android:textColor="#795548"
                 android:textSize="18sp" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/text">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,7 +82,6 @@
                 android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -104,7 +96,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="1.0">
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -120,7 +111,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.375"
             app:tint="@color/keywords" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -135,7 +125,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             app:layout_constraintVertical_bias="0.0" />
-
         <Button
             android:id="@+id/btn_next"
             android:layout_width="100dp"
@@ -149,8 +138,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

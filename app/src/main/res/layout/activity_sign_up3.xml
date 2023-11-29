@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:weightSum="100"
     tools:context=".SignUpActivity3">
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -20,14 +19,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/text">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,14 +40,12 @@
                 android:textColor="#3E2723"
                 android:textSize="18sp" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/text">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,14 +61,12 @@
                 android:textColor="#795548"
                 android:textSize="18sp" />
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="10dp"
             android:background="@drawable/circular_bg"
             android:backgroundTint="@color/keywords">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +83,6 @@
                 android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -106,7 +98,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="1.0">
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -123,7 +114,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
         <EditText
             android:id="@+id/emailId"
             android:layout_width="350dp"
@@ -141,7 +131,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent" />
-
         <EditText
             android:id="@+id/password"
             android:layout_width="350dp"
@@ -159,7 +148,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent" />
-
         <EditText
             android:id="@+id/confirmPassword"
             android:layout_width="350dp"
@@ -177,7 +165,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent" />
-
         <ProgressBar
             android:id="@+id/Progress_Bar"
             android:layout_width="32dp"
@@ -190,7 +177,6 @@
             app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
             app:layout_constraintVertical_bias="0.047"
             app:tint="@color/keywords" />
-
         <Button
             android:id="@+id/createAccount"
             android:layout_width="wrap_content"
@@ -205,8 +191,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
-
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -218,7 +202,6 @@
             app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
-
         <TextView
             android:id="@+id/login"
             android:layout_width="wrap_content"
@@ -230,7 +213,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView2" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

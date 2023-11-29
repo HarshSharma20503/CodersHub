@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
 public class FirebaseInstanceIdService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMessagingService";
     private static final String CHANNEL_ID = "xoxoHarsh_id";
@@ -43,13 +42,11 @@ public class FirebaseInstanceIdService extends FirebaseMessagingService {
             channel.enableVibration(true);
             notificationManager.createNotificationChannel(channel);
         }
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
         notificationManager.notify(0, builder.build());
     }
 }

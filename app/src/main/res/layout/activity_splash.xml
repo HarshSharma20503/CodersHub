@@ -8,14 +8,12 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".SplashActivity">
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
         app:tint="@color/keywords"
         android:contentDescription="@string/imgDes_logo" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,11 +24,9 @@
         android:fontFamily="monospace"
         android:layout_marginTop="0dp"
         />
-
     <ProgressBar
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:tint="@color/keywords" />
-
 </LinearLayout>

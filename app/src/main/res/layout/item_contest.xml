@@ -8,14 +8,12 @@
     android:layout_margin="8dp"
     android:backgroundTint="@color/backgroundAccent"
     android:background="@drawable/rounded_corner">
-
     <TextView
         android:id="@+id/platformTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Leetcode"
-
         android:textColor="@color/strings"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -23,7 +21,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -34,7 +31,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/platformTextView" />
-
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="300dp"
@@ -45,7 +41,6 @@
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
-
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
@@ -56,7 +51,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
-
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="80dp"
@@ -67,7 +61,6 @@
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView16"
         app:layout_constraintStart_toEndOf="@+id/textView16" />
-
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
@@ -78,7 +71,6 @@
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView16"
         app:layout_constraintStart_toEndOf="@+id/dateTextView" />
-
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="80dp"
@@ -89,6 +81,4 @@
         android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView17"
         app:layout_constraintStart_toEndOf="@+id/textView17" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

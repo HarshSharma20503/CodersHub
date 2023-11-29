@@ -1,20 +1,14 @@
 package com.xoxoharsh.codershub.model;
-
 public class Contest {
-    private String title;
-    private String platform;
-    private String date;
-    private String time;
+    private String title,platform,date,time;
     public Contest(){
     }
-
     public Contest(String title, String platform, String date, String time) {
         this.title = title;
         this.platform = platform;
         this.date = date;
         this.time = time;
     }
-
     public String getTitle() { return title; }
     public void setTitle(String title) {
         this.title = title;

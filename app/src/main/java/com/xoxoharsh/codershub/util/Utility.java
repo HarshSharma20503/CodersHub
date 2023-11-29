@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub.util;
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -35,16 +34,13 @@ public class Utility {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    // Convert the document to a Map
                     Log.d("CodersHub_Errors","Data fetched successfully");
                     Map<String, Object> userData = document.getData();
                     setData(userData);
                 } else {
-                    // Document doesn't exist
                     Log.d("CodersHub_Errors","User data not found.");
                 }
             } else {
-                // Handle errors
                 Log.d("CodersHub_Errors","Error fetching user data.");
             }
         });

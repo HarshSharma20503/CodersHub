@@ -9,7 +9,6 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".LoginActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
@@ -20,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.73">
-
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
@@ -33,7 +31,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:tint="@color/keywords" />
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -50,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <EditText
         android:id="@+id/emailId"
         android:layout_width="match_parent"
@@ -67,7 +63,6 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/password"
         tools:layout_editor_absoluteX="10dp" />
-
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -85,8 +80,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
     <ProgressBar
         android:id="@+id/Progress_Bar"
         android:layout_width="32dp"
@@ -99,7 +94,6 @@
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.047"
         app:tint="@color/keywords" />
-
     <Button
         android:id="@+id/LogIn"
         android:layout_width="wrap_content"
@@ -114,7 +108,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.287" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -126,7 +119,6 @@
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
-
     <TextView
         android:id="@+id/SignUp"
         android:layout_width="wrap_content"
@@ -138,5 +130,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

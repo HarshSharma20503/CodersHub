@@ -6,14 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".PotdFragment">
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAlignment="center"
-        >
-
+        android:textAlignment="center" >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,9 +17,7 @@
             android:gravity="center"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_gravity="top"
-            >
-
+            android:layout_gravity="top" >
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout3"
                 android:layout_width="379dp"
@@ -36,7 +30,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.008">
-
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
@@ -48,7 +41,6 @@
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
                     android:id="@+id/platform"
                     android:layout_width="wrap_content"
@@ -60,7 +52,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView6" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout8"
                 android:layout_width="381dp"
@@ -71,7 +62,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
                 <TextView
                     android:id="@+id/problem_statement_section"
                     android:layout_width="wrap_content"
@@ -83,7 +73,6 @@
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
@@ -99,9 +88,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/problem_statement_section"
                     app:layout_constraintVertical_bias="1.0" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout10"
                 android:layout_width="381dp"
@@ -112,7 +99,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
                 <TextView
                     android:id="@+id/constraint_section"
                     android:layout_width="wrap_content"
@@ -124,7 +110,6 @@
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
@@ -140,9 +125,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraint_section"
                     app:layout_constraintVertical_bias="1.0" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout11"
                 android:layout_width="381dp"
@@ -153,7 +136,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
                 <TextView
                     android:id="@+id/example_section"
                     android:layout_width="wrap_content"
@@ -165,7 +147,6 @@
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
@@ -181,13 +162,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/example_section"
                     app:layout_constraintVertical_bias="1.0" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </LinearLayout>
     </ScrollView>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

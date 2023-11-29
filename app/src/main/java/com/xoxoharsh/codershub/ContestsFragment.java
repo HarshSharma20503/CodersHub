@@ -10,8 +10,7 @@ import com.xoxoharsh.codershub.model.Contest;
 import java.util.List;
 public class ContestsFragment extends Fragment {
     private List<Contest> contestList;
-    public ContestsFragment() {
-    }
+    public ContestsFragment() { }
     public void setContestList(List<Contest> contestList) {
         this.contestList = contestList;
     }

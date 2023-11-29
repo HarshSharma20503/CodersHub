@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -51,7 +50,6 @@ public class SettingsActivity extends AppCompatActivity {
         String newLHandle = LeetcodeHandle.getText().toString().trim();
         String newGfgHandle = GfgHandle.getText().toString().trim();
         Log.d("CodersHub_Errors", "Clicked Handles apply button");
-        // Update the document with new handles
         DocumentReference userDocRef = FirebaseUtil.currentUserDetails();
         Map<String, Object> updatedHandles = new HashMap<>();
         if (!newCfHandle.isEmpty()) {
@@ -119,11 +117,9 @@ public class SettingsActivity extends AppCompatActivity {
                             }
                         });
             } else {
-                // Handle the case where the user is not signed in
-                Toast.makeText(SettingsActivity.this,
-                        "User not signed in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this,"User not signed in", Toast.LENGTH_SHORT).show();
             }
-        }else{
+        } else {
             Toast.makeText(this, "Not valid Password", Toast.LENGTH_SHORT).show();
         }
     }

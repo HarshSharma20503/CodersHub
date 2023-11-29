@@ -34,10 +34,7 @@ public class ContestAdapter extends RecyclerView.Adapter<ContestAdapter.ContestV
         return contestList.size();
     }
     public static class ContestViewHolder extends RecyclerView.ViewHolder {
-        public TextView titleTextView;
-        public TextView platformTextView;
-        public TextView timeTextView;
-        public TextView dateTextView;
+        public TextView titleTextView, platformTextView,timeTextView,dateTextView;
         public ContestViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);

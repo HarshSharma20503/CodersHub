@@ -98,14 +98,12 @@ public class SignUpActivity3 extends AppCompatActivity {
                                     changeInProgress(false);
                                     firebaseAuth.getCurrentUser().sendEmailVerification();
                                     firebaseAuth.signOut();
-
                                     Intent intent = new Intent(SignUpActivity3.this, LoginActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
                                     finish();
                                 });
                     } else {
-                        // Handle Firebase Authentication error
                         String errorMessage = task.getException().getLocalizedMessage();
                         Toast.makeText(SignUpActivity3.this, errorMessage, Toast.LENGTH_SHORT).show();
                         changeInProgress(false);
@@ -122,8 +120,7 @@ public class SignUpActivity3 extends AppCompatActivity {
         }
     }
     boolean validateData(String email,String password1,String confirmPassword1){
-        //validate the data that are input by user.
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){ //check if email matches the pattern
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             emailIdEditText.setError("Email is invalid");
             return false;
         }

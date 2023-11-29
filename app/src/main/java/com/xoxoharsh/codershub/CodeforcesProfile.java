@@ -1,5 +1,4 @@
 package com.xoxoharsh.codershub;
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,17 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Map;
-
 public class CodeforcesProfile extends Fragment {
-    TextView handle,currentRank,maxRank,currentRating,maxRating;
-    TextView questionSolved,maxCodingStreak,noOfContribution,noOfFriends;
+    TextView handle,currentRank,maxRank,currentRating,maxRating,questionSolved,maxCodingStreak,noOfContribution,noOfFriends;
     public CodeforcesProfile() {
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_codeforces_profile, container, false);
-
         Log.d("CodersHub_Errors","Entered Codeforces Profile Fragment");
         handle = view.findViewById(R.id.username);
         currentRank = view.findViewById(R.id.currentRank);
@@ -34,13 +29,10 @@ public class CodeforcesProfile extends Fragment {
         noOfContribution = view.findViewById(R.id.noofcontributions);
         noOfFriends = view.findViewById(R.id.nooffriends);
         Bundle bundle = getArguments();
-
         if (bundle != null) {
             Log.d("CodersHub_Errors", "Received Data");
             Map<String, Object> userData = (Map<String, Object>) bundle.getSerializable("userData");
             Log.d("CodersHub_Errors", userData.toString());
-
-            // Check if the key exists before setting the text
             if (userData.containsKey("Handle")) {
                 handle.setText(userData.get("Handle").toString());
             }
@@ -72,7 +64,6 @@ public class CodeforcesProfile extends Fragment {
             Log.d("CodersHub_Errors", "Data Not received in fragment");
             Toast.makeText(getContext(), "Data Not received in fragment", Toast.LENGTH_SHORT).show();
         }
-
         return view;
     }
 }

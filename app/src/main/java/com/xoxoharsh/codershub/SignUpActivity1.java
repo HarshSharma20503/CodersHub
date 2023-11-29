@@ -1,14 +1,11 @@
 package com.xoxoharsh.codershub;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-
 public class SignUpActivity1 extends AppCompatActivity {
-
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

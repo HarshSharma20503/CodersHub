@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("CodersHub_Errors","Entered MainActivity");
-
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         menuBtn = findViewById(R.id.menu_btn);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -75,13 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Data not recieved", Toast.LENGTH_SHORT).show();
             }
         }
-
-        // to get POTD and contests data
         getPotdData();
         getContestData();
-
         menuBtn.setOnClickListener(v -> showMenu());
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.menu_profile) {
                 Bundle bundle = new Bundle();
@@ -115,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                         bundle.putSerializable("userData", (Serializable) leetcodePotdMap);
                         break;
                     case "codeforces":
-
                         bundle.putSerializable("userData", (Serializable) codeforcesPotdMap);
                         break;
                     case "gfg":
@@ -128,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Harsh Error","Sending data");
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,potdFragment).commit();
             }
-            if(item.getItemId() == R.id.menu_contest)
-            {
+            if(item.getItemId() == R.id.menu_contest) {
                 contestsFragment.setContestList(contestList);
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,contestsFragment).commit();
             }
@@ -140,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // Perform your refresh action here
-                // For example, fetch new data from the server
                 Log.d("CodersHub_Errors","Entered OnRefresh Function");
                 Utility.updateProfile();
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -151,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Login Again to see the changes", Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
-
                 swipeRefreshLayout.setRefreshing(false);
                 finish();
             }
@@ -168,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem -> {
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_frame_layout);
             String fragment;
-            if (currentFragment instanceof CodeforcesProfile || currentFragment instanceof LeetcodeProfile || currentFragment instanceof GfgProfile) {
+            if (currentFragment instanceof CodeforcesProfile || currentFragment instanceof LeetcodeProfile || currentFragment instanceof GfgProfile){
                 fragment = "Profile";
             } else if (currentFragment instanceof PotdFragment) {
                 fragment = "POTD";
@@ -178,8 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = "";
             }
             if(menuItem.getTitle() == "Codeforces"){
-                if(menuList.contains("codeforces"))
-                {
+                if(menuList.contains("codeforces")) {
                     platform = "codeforces";
                     if(fragment.equals("Profile")) {
                         codeforcesProfile = new CodeforcesProfile();
@@ -188,8 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         bundle.putString("Platform",platform);
                         codeforcesProfile.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,codeforcesProfile).commit();
-                    } else if(fragment.equals("POTD"))
-                    {
+                    } else if(fragment.equals("POTD")) {
                         potdFragment = new PotdFragment();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("userData", (Serializable) codeforcesPotdMap);
@@ -220,12 +208,10 @@ public class MainActivity extends AppCompatActivity {
                         bundle.putString("Platform",platform);
                         potdFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,potdFragment).commit();
-                    }
-                    else {
+                    } else {
                         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(this, "Please add the Leetcode handle from settings", Toast.LENGTH_SHORT).show();
                 }
             } else if(menuItem.getTitle() == "Geeksforgeek"){
@@ -248,8 +234,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         bottomNavigationView.setSelectedItemId(R.id.menu_profile);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(this, "Please add the Geeksforgeek handle from settings", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -264,10 +249,8 @@ public class MainActivity extends AppCompatActivity {
                 if(codeforcesMap != null){
                     intent.putExtra("codeforcesHandle",(String)codeforcesMap.get("Handle"));
                 }
-
                 startActivity(intent);
-            }
-            else if (menuItem.getTitle() == "Logout") {
+            } else if (menuItem.getTitle() == "Logout") {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
@@ -283,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    // Convert the document to a Map
                     Map<String, Object> userData = document.getData();
                     if(userData.containsKey("Codeforces"))
                         codeforcesPotdMap = (Map<String,Object>)userData.get("Codeforces");
@@ -305,28 +287,22 @@ public class MainActivity extends AppCompatActivity {
     public void getContestData() {
         Log.d("CodersHub_Errors", "Fetching contests data");
         DocumentReference userRef = FirebaseUtil.contests();
-
         userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    // Convert the document to a Map
                     Map<String, Object> userData = document.getData();
-
                     Log.d("CodersHub_Errors", "Got contests data");
                     contestList = new ArrayList<>();
                     for(Map.Entry<String,Object>entry: userData.entrySet()){
                         Map<String, Object>contestData = (Map<String, Object>)entry.getValue();
-
                         String title = (String)contestData.get("Name");
                         String platform = (String)contestData.get("Platform");
                         String date = (String)contestData.get("Date");
                         String time = (String)contestData.get("Time");
-
                         Contest contest = new Contest(title,platform,date,time);
                         contestList.add(contest);
                     }
-
                 } else {
                     Toast.makeText(MainActivity.this, "User data not found.", Toast.LENGTH_SHORT).show();
                 }
