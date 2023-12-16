@@ -36,13 +36,11 @@ Check out the video demo of CodersHub to see the features in action!
 
 ### Whole Project
 
-![Whole Project Control Flow Diagram](![Firebase Interface](https://github.com/HarshSharma20503/CodersHub/assets/99866531/0b7d6ca6-4180-468b-b379-aa22558e8701)
-)
+![Whole Project Control Flow Diagram](https://github.com/HarshSharma20503/CodersHub/assets/99866531/0b7d6ca6-4180-468b-b379-aa22558e8701)
 
 ### Android Application
 
-![Android Application Control Flow Diagram](![Start](https://github.com/HarshSharma20503/CodersHub/assets/99866531/b2e79ea0-a12e-492b-84d0-c5ab2c26b426)
-)
+![Android Application Control Flow Diagram](https://github.com/HarshSharma20503/CodersHub/assets/99866531/b2e79ea0-a12e-492b-84d0-c5ab2c26b426)
 
 ## Getting Started
 
