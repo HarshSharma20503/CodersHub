@@ -1,4 +1,4 @@
-# CodersHub
+![Firebase Interface](https://github.com/HarshSharma20503/CodersHub/assets/99866531/6240e030-e498-4e91-820d-d88877f80e60)# CodersHub
 
 **Simplifying access to coding profiles.**
 
@@ -36,11 +36,13 @@ Check out the video demo of CodersHub to see the features in action!
 
 ### Whole Project
 
-![Whole Project Control Flow Diagram](https://assets-prd.ignimgs.com/2022/08/17/top25animecharacters-blogroll-1660777571580.jpg)
+![Whole Project Control Flow Diagram](![Firebase Interface](https://github.com/HarshSharma20503/CodersHub/assets/99866531/0b7d6ca6-4180-468b-b379-aa22558e8701)
+)
 
 ### Android Application
 
-![Android Application Control Flow Diagram](link_to_android_app_diagram_image)
+![Android Application Control Flow Diagram](![Start](https://github.com/HarshSharma20503/CodersHub/assets/99866531/b2e79ea0-a12e-492b-84d0-c5ab2c26b426)
+)
 
 ## Getting Started
 
