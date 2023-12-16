@@ -24,7 +24,7 @@ CodersHub is a mobile application designed to address the challenges faced by co
 
 ## Backend Repository
 
-The backend of CodersHub is hosted in a separate repository. You can find it [here](https://github.com/your-username/CodersHub-Backend).
+The backend of CodersHub is hosted in a separate repository. You can find it [here](https://github.com/KanishkRajMittal/minor).
 
 ## Video Demo
 
@@ -52,7 +52,7 @@ Check out the video demo of CodersHub to see the features in action!
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/CodersHub.git`
+1. Clone the repository: `git clone https://github.com/HarshSharma20503/CodersHub.git`
 2. Open the project in Android Studio.
 3. Configure Firebase settings.
 4. Build and run the application on your mobile device.
