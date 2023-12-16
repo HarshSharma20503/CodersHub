@@ -30,7 +30,7 @@ The backend of CodersHub is hosted in a separate repository. You can find it [he
 
 Check out the video demo of CodersHub to see the features in action!
 
-[![CodersHub Demo](link_to_demo_thumbnail_image)](link_to_demo_video)
+[![CodersHub Demo](https://github.com/HarshSharma20503/CodersHub/assets/99866531/472544e1-3173-4a6d-8874-0bcf6809e8fa)](https://youtu.be/rqHtNsME9v4)
 
 ## Control Flow Diagrams
 
