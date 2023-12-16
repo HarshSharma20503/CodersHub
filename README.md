@@ -36,7 +36,7 @@ Check out the video demo of CodersHub to see the features in action!
 
 ### Whole Project
 
-![Whole Project Control Flow Diagram](link_to_whole_project_diagram_image)
+![Whole Project Control Flow Diagram](https://drive.google.com/file/d/1mcL95rrIggh0cHe3fAbbrlw3a7VF9YPL/view?usp=sharing)
 
 ### Android Application
 
