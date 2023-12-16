@@ -1,4 +1,4 @@
-![Firebase Interface](https://github.com/HarshSharma20503/CodersHub/assets/99866531/6240e030-e498-4e91-820d-d88877f80e60)# CodersHub
+# CodersHub
 
 **Simplifying access to coding profiles.**
 
